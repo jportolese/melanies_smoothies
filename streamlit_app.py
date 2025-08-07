@@ -29,7 +29,6 @@ ingredients_list = st.multiselect(
 )
 
 if ingredients_list:
-
    ingredients_string = ''
 
    for fruit_chosen in ingredients_list:
@@ -44,7 +43,7 @@ if ingredients_list:
      my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
             values ('""" + ingredients_string + """','"""+name_on_order+"""')"""
      
-     time_to_insert = st.button('Submit Order', key = 1)
+     time_to_insert = st.button('Submit Order')
      if time_to_insert:
        session.sql(my_insert_stmt).collect()
        
